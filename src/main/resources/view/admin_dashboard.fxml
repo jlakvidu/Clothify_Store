@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="518.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
+   <children>
+       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="518.0" layoutX="-120.0" width="300.0">
+           <!-- Optional: Gradient fill can also be applied with a linear gradient if needed -->
+       </Rectangle>
+      <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="62.0" layoutY="16.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="80.0" layoutY="32.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="30.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dashboardicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="30.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/employeeicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="28.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/charticon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="30.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/men%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="28.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ietm%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="31.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/lorry%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="31.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/about%20icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="81.0" layoutY="101.0" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="81.0" layoutY="148.0" onAction="#btnNewEmployeeOnAction" text="New Employee" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="80.0" layoutY="195.0" onAction="#btnAllReportsOnAction" text="All Reports" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="82.0" layoutY="244.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="85.0" layoutY="294.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="87.0" layoutY="343.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="86.0" layoutY="389.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="218.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="640.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.8999999761581421" opacity="0.8999999761581421" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="436.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="176.0" layoutX="193.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="218.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="376.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="533.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="694.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efff1f" height="29.0" layoutX="218.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#969696" height="29.0" layoutX="376.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="533.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f81fff" height="29.0" layoutX="694.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
+      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="261.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/chart%20black.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="48.0" layoutX="423.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/orderblack.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="575.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/customersblack.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="738.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ietmblack.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="251.0" layoutY="109.0" text="Total Sales">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="405.0" layoutY="109.0" text="Total Orders">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="550.0" layoutY="109.0" text="Total Customers">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="728.0" layoutY="109.0" text="Sold Items">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="232.0" layoutY="206.0" text="Rs :">
+         <font>
+            <Font name="Tw Cen MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrders" layoutX="441.0" layoutY="209.0" text="0">
+         <font>
+            <Font name="Tw Cen MT" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCustomers" layoutX="598.0" layoutY="209.0" text="0">
+         <font>
+            <Font name="Tw Cen MT" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSales" layoutX="283.0" layoutY="209.0" text="0">
+         <font>
+            <Font name="Tw Cen MT" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblItems" layoutX="766.0" layoutY="209.0" text="0">
+         <font>
+            <Font name="Tw Cen MT" size="23.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="234.0" layoutX="193.0" layoutY="278.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+   </children>
+</AnchorPane>

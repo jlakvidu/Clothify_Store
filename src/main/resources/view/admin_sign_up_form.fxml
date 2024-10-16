@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminSignUpFormController">
+   <children>
+      <JFXTextField fx:id="txtFirstName" layoutX="233.0" layoutY="94.0" promptText="First Name" />
+      <JFXTextField fx:id="txtLastName" layoutX="233.0" layoutY="166.0" promptText="Last Name" />
+      <JFXTextField fx:id="txtEmailAddress" layoutX="246.0" layoutY="242.0" promptText="Email Address" />
+      <JFXTextField fx:id="txtPassword" layoutX="258.0" layoutY="278.0" promptText="Password" />
+      <JFXTextField fx:id="txtConfirmPassword" layoutX="276.0" layoutY="350.0" promptText="Confirm Password" />
+      <JFXButton layoutX="496.0" layoutY="350.0" onAction="#btnSigUpOnAction" text="Sign Up" />
+   </children>
+</AnchorPane>

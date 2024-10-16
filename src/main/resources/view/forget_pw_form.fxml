@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" prefHeight="289.0" prefWidth="433.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="controller.ForgetPasswordFormController">
+   <children>
+      <Label layoutX="50" layoutY="20" text="Forgot Password" />
+      <Label layoutX="50" layoutY="60" text="Email Address:" />
+      <TextField fx:id="txtEmail" layoutX="150" layoutY="60" promptText="Enter your email" />
+      <Button layoutX="150" layoutY="100" onAction="#sendOTP" text="Send OTP" />
+      <Label fx:id="otpMessage" layoutX="150" layoutY="140" textFill="RED" />
+   </children>
+</AnchorPane>

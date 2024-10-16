@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDashboardFormController">
+   <children>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="518.0" layoutX="-110.0" width="300.0" />
+      <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="72.0" layoutY="16.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="90.0" layoutY="32.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="40.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dashboardicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="41.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/men%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="37.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ietm%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="40.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/lorry%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="41.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/about%20icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="93.0" layoutY="154.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="94.0" layoutY="214.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="96.0" layoutY="275.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="96.0" layoutY="389.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="228.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="640.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.8999999761581421" opacity="0.8999999761581421" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="446.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="91.0" layoutY="101.0" onAction="#btnPlaceOrderOnAction" text="Place Order" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="273.0" layoutY="101.0" prefHeight="25.0" prefWidth="78.0" text="Order Id :">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="440.0" layoutY="101.0" prefHeight="18.0" prefWidth="62.0" text="Date :">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderDate" layoutX="501.0" layoutY="101.0" prefHeight="25.0" prefWidth="93.0" text="2023-09-08">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="631.0" layoutY="101.0" prefHeight="18.0" prefWidth="62.0" text="Time :">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderTime" layoutX="703.0" layoutY="101.0" prefHeight="25.0" prefWidth="119.0" text="1 : 15">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtOrderId" layoutX="341.0" layoutY="100.0" prefHeight="26.0" prefWidth="87.0" />
+      <ComboBox fx:id="cmdCustomerId" layoutX="298.0" layoutY="155.0" prefHeight="26.0" prefWidth="134.0" promptText="Customer ID" />
+      <ComboBox fx:id="cmdItemCode" layoutX="298.0" layoutY="199.0" prefHeight="14.0" prefWidth="133.0" promptText="Item Code" />
+      <TextField fx:id="txtCustomerName" layoutX="481.0" layoutY="155.0" promptText="Customer Name" />
+      <TextField fx:id="txtCustomerAddress" layoutX="652.0" layoutY="155.0" promptText="Customer Address" />
+      <TextField fx:id="txtDescription" layoutX="481.0" layoutY="199.0" prefHeight="26.0" prefWidth="93.0" promptText="Description" />
+      <TextField fx:id="txtStock" layoutX="718.0" layoutY="198.0" prefHeight="26.0" prefWidth="94.0" promptText="Stock" />
+      <TextField fx:id="txtUnitPrice" layoutX="604.0" layoutY="199.0" prefHeight="26.0" prefWidth="94.0" promptText="Unit Price" />
+      <TextField fx:id="txtQty" layoutX="604.0" layoutY="244.0" prefHeight="26.0" prefWidth="94.0" promptText="QTY" />
+      <JFXButton layoutX="722.0" layoutY="244.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Add To Cart" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblOrderDetails" layoutX="252.0" layoutY="313.0" prefHeight="200.0" prefWidth="606.0">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="86.39996647834778" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="127.20001220703125" text="Description" />
+            <TableColumn fx:id="colQty" prefWidth="112.79991149902344" text="QTY" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="145.60003662109375" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="136.800048828125" text="Total" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="738.0" layoutY="531.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Place Order" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="271.0" layoutY="529.0" prefHeight="31.0" prefWidth="111.0" text="Net Total :" textFill="#c90000">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNetTotal" layoutX="382.0" layoutY="529.0" prefHeight="31.0" prefWidth="111.0" text="0000.00" textFill="#c90000">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="617.0" layoutY="516.0" onAction="#btnRemoveOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Remove" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtCatagory" layoutX="501.0" layoutY="245.0" prefHeight="26.0" prefWidth="94.0" promptText="Catagory" />
+      <TextField fx:id="txtEmpId" layoutX="290.0" layoutY="244.0" prefHeight="26.0" prefWidth="67.0" promptText="emp id" />
+      <TextField fx:id="txtEmail" layoutX="385.0" layoutY="246.0" prefHeight="26.0" prefWidth="67.0" promptText="email" />
+      <TextField fx:id="txtDiscount" layoutX="615.0" layoutY="286.0" prefHeight="26.0" prefWidth="94.0" promptText="Discount" />
+   </children>
+</AnchorPane>
