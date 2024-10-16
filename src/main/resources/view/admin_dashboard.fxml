@@ -5,15 +5,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
+<AnchorPane prefHeight="566.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
    <children>
-       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="518.0" layoutX="-120.0" width="300.0">
+       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="566.0" layoutX="-120.0" width="300.0">
            <!-- Optional: Gradient fill can also be applied with a linear gradient if needed -->
        </Rectangle>
       <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
@@ -215,7 +216,7 @@
             <Font name="Tw Cen MT" size="23.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="234.0" layoutX="193.0" layoutY="278.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="281.0" layoutX="193.0" layoutY="278.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
          <fill>
             <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
                <stops>
@@ -233,5 +234,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
+      <VBox fx:id="chartContainer" layoutX="227.0" layoutY="288.0" prefHeight="250.0" prefWidth="391.0" />
+      
    </children>
 </AnchorPane>

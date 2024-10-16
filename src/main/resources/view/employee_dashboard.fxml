@@ -17,7 +17,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDashboardFormController">
    <children>
-      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="518.0" layoutX="-110.0" width="300.0" />
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="569.0" layoutX="-110.0" layoutY="-4.0" width="300.0" />
       <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo.png" />
@@ -33,47 +33,47 @@
             <Font name="Bell MT Bold" size="13.0" />
          </font>
       </Label>
-      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="40.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="37.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/dashboardicon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="41.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="38.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/men%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="37.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="34.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/ietm%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="40.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="37.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/lorry%20icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="41.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="37.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/about%20icon.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="93.0" layoutY="154.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
+      <JFXButton layoutX="90.0" layoutY="188.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="94.0" layoutY="214.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
+      <JFXButton layoutX="91.0" layoutY="248.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="96.0" layoutY="275.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
+      <JFXButton layoutX="93.0" layoutY="309.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="96.0" layoutY="389.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
+      <JFXButton layoutX="92.0" layoutY="359.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
@@ -101,7 +101,7 @@
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </Label>
-      <JFXButton layoutX="91.0" layoutY="101.0" onAction="#btnPlaceOrderOnAction" text="Place Order" textFill="WHITE">
+      <JFXButton layoutX="88.0" layoutY="135.0" onAction="#btnPlaceOrderWindowOnAction" text="Place Order" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>

@@ -1,0 +1,61 @@
+.table-view {
+    -fx-background-color: #f3e5f5; /* Light purple background */
+    -fx-border-color: #7b1fa2; /* Dark purple border */
+    -fx-border-width: 2px;
+    -fx-table-cell-border-color: #7b1fa2;
+    -fx-focus-color: #7b1fa2;
+    -fx-faint-focus-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: #ba68c8; /* Medium purple for column headers */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #f3e5f5; /* Light purple for rows */
+    -fx-text-fill: #4a148c; /* Dark purple text */
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #e1bee7; /* Slightly darker alternate row color */
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #7b1fa2; /* Dark purple for selected row */
+    -fx-text-fill: white;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white; /* White text in headers */
+}
+
+.table-view .table-cell {
+    -fx-border-color: #7b1fa2; /* Borders between cells */
+    -fx-border-width: 1px;
+    -fx-padding: 8px;
+}
+
+.table-view .table-cell:selected {
+    -fx-background-color: #4a148c; /* Darker purple for selected cell */
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #9c27b0; /* Highlight row on hover */
+    -fx-text-fill: white;
+}
+
+.scroll-bar {
+    -fx-background-color: #e1bee7; /* Scroll bar background in light purple */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #9c27b0; /* Scroll thumb in medium purple */
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #6a1b9a; /* Darker purple on hover */
+}
+

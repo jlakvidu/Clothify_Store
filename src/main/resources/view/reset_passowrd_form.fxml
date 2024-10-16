@@ -4,15 +4,53 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="314.0" prefWidth="473.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/22" fx:controller="controller.ResetPasswordFormController">
+<AnchorPane fx:id="rootPane" prefHeight="528.0" prefWidth="763.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResetPasswordFormController">
     <children>
-        <Label layoutX="50" layoutY="20" text="Reset Password" />
-        <Label layoutX="50" layoutY="60" text="Enter OTP:" />
-        <TextField fx:id="txtOTP" layoutX="150" layoutY="60" promptText="Enter OTP" />
-        <Label layoutX="50" layoutY="100" text="New Password:" />
-        <PasswordField fx:id="txtNewPassword" layoutX="150" layoutY="100" promptText="New Password" />
-        <Button layoutX="150" layoutY="140" onAction="#btnResetPWOnAction" text="Reset Password" />
+      <ImageView fitHeight="530.0" fitWidth="845.0" layoutX="-80.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/background%20image.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="392.0" layoutX="151.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="448.0" />
+        <Label layoutX="260.0" layoutY="204.0" text="Enter your new passowrd to continue">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+        <Label layoutX="239.0" layoutY="249.0" text="Enter OTP:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font></Label>
+        <TextField fx:id="txtOTP" layoutX="238.0" layoutY="276.0" prefHeight="26.0" prefWidth="240.0" promptText="Enter OTP" />
+        <Label layoutX="239.0" layoutY="324.0" text="New Password:">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font></Label>
+        <PasswordField fx:id="txtNewPassword" layoutX="238.0" layoutY="349.0" prefHeight="26.0" prefWidth="240.0" promptText="New Password" />
+        <Button layoutX="292.0" layoutY="392.0" onAction="#btnResetPWOnAction" prefHeight="23.0" prefWidth="150.0" style="-fx-background-color: #00a8ff;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="12.0" />
+         </font></Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="279.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/reset%20passowrd%20icon.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="224.0" layoutY="494.0" prefHeight="18.0" prefWidth="281.0" text="copyright@2024 Clothify Store.All Rights Resereved" textAlignment="CENTER">
+         <font>
+            <Font name="Baskerville Old Face" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="502.0" layoutY="421.0" mnemonicParsing="false" onAction="#btnBackToLoginOnAction" style="-fx-background-color: #f5f6fa;" text="Back to login" underline="true" />
+      <ImageView fitHeight="20.0" fitWidth="26.0" layoutX="484.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/R.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

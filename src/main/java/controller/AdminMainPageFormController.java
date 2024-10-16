@@ -1,11 +1,15 @@
 package controller;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dto.User;
 import entity.UserEntity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
@@ -16,6 +20,8 @@ import service.custom.UserService;
 import util.ServiceType;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class AdminMainPageFormController {
 
@@ -25,22 +31,24 @@ public class AdminMainPageFormController {
     public ImageView rightImageView;
     @FXML
     private AnchorPane rootPane;
-
+    @FXML
+    public JFXPasswordField txtPassword;
     @FXML
     private JFXTextField txtEmailAddress;
 
-    @FXML
-    private JFXTextField txtPassword;
 
     @FXML
     void btnEmployeeOnAction(ActionEvent event) {
-        Stage stage = new Stage();
+        Stage newStage = new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_main_page.fxml"))));
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_main_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
@@ -52,37 +60,45 @@ public class AdminMainPageFormController {
         User user = userService.loginUser(email, password);
 
         if (user != null) {
-            Stage stage = new Stage();
+            Stage newStage = new Stage();
             try {
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_dashboard.fxml"))));
-                stage.setTitle("Admin Sign Up");
-                stage.show();
+                newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_dashboard.fxml"))));
             } catch (IOException e) {
-                e.printStackTrace();
-                new Alert(Alert.AlertType.ERROR, "Failed to load sign-up form.").show();
+                throw new RuntimeException(e);
             }
+            newStage.show();
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
         } else {
             new Alert(Alert.AlertType.WARNING, "Invalid User Name Or Password.").show();
         }
     }
 
-    public void btnSignUpOnAction(ActionEvent actionEvent) {
-        Stage stage = new Stage();
+    public void btnSignUpOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_sign_up_form.fxml"))));
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_sign_up_form.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
-    public void btnForgetPwOnAction(ActionEvent actionEvent) {
-        Stage stage = new Stage();
+    public void btnForgetPwOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/forget_pw_form.fxml"))));
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/forget_pw_form.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
+
 }

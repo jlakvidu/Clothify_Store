@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="678.0" prefWidth="1132.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeAboutUsFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="586.0" layoutX="240.0" layoutY="80.0" stroke="BLACK" strokeType="INSIDE" width="847.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="267.0" layoutY="6.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="804.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.8999999761581421" opacity="0.8999999761581421" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="564.0" layoutY="12.0" text="About Us" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="118.0" fitWidth="154.0" layoutX="481.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="607.0" layoutY="114.0" text="Clothify Store" textFill="#00abff">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="645.0" layoutY="141.0" text="Panadura" textFill="#00abff">
+         <font>
+            <Font name="Bell MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="526.0" layoutY="188.0" text="Clothify Store Management System">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="620.0" layoutY="213.0" text="Version 1.0.0">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="537.0" layoutY="231.0" prefHeight="18.0" prefWidth="281.0" text="copyright@2024 Clothify Store.All Rights Resereved" textAlignment="CENTER">
+         <font>
+            <Font name="Baskerville Old Face" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="512.0" layoutY="289.0" text="A program for manage production of J&amp;L Software ">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="312.0" text="Solution (PVT) LTD, This software provides to manage daily ">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="554.0" layoutY="333.0" text="operations of sales and customers">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="481.0" layoutY="374.0" text="And this made for 19th Octomber final project of @icet 110 Batch">
+         <font>
+            <Font name="Verdana" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="415.0" layoutY="424.0" text="These are the facilities of this software." textOverrun="CLIP" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="456.0" text="- View Daily Sales ">
+         <font>
+            <Font name="Tw Cen MT" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="479.0" text="- Manage Customers">
+         <font>
+            <Font name="Tw Cen MT" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="503.0" text="- Manage Items">
+         <font>
+            <Font name="Tw Cen MT" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="524.0" text="- View Employees Progress &amp; Much More....">
+         <font>
+            <Font name="Tw Cen MT" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="754.0" layoutY="605.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/fb.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="828.0" layoutY="507.0" text="J &amp; L Software Solutions" textFill="RED">
+         <font>
+            <Font name="Verdana Bold" size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="801.0" layoutY="606.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/insta%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="54.0" layoutX="840.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/linkdin%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="36.0" layoutX="888.0" layoutY="602.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/yt%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="54.0" layoutX="920.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/twitter%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="94.0" layoutX="850.0" layoutY="415.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/network%20icon%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="567.0" layoutY="606.0" prefHeight="36.0" prefWidth="66.0" text="Conatct Us" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Bell MT" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="633.0" layoutY="615.0" prefHeight="18.0" prefWidth="90.0" text="+94 77 484 1006" textAlignment="CENTER" underline="true">
+         <font>
+            <Font name="Baskerville Old Face" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="" fitHeight="36.0" fitWidth="43.0" layoutX="751.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/home.icon.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="678.0" layoutX="-90.0" width="300.0" />
+      <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="32.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="92.0" layoutY="36.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="110.0" layoutY="52.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="55.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dashboardicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="56.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/men%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="52.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ietm%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="55.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/lorry%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="58.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/about%20icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="108.0" layoutY="196.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="109.0" layoutY="256.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="111.0" layoutY="317.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="113.0" layoutY="378.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="106.0" layoutY="143.0" onAction="#btnPlaceOrderOnAction" text="Place Order" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

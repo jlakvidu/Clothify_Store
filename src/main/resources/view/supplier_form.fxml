@@ -1,53 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="505.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
+<AnchorPane prefHeight="601.0" prefWidth="1102.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierFormController">
    <children>
-      <JFXTextField fx:id="txtSupplierName" layoutX="366.0" layoutY="52.0" promptText="supplier name" />
-      <JFXTextField fx:id="txtSupplierId" layoutX="43.0" layoutY="52.0" promptText="supplier id" />
-      <JFXTextField fx:id="txtContactNumber" layoutX="366.0" layoutY="120.0" promptText="contactNumber" />
-      <JFXTextField fx:id="txtSupplierEmailAddress" layoutX="43.0" layoutY="187.0" promptText="email address" />
-      <JFXComboBox fx:id="txtTitle" layoutX="204.0" layoutY="51.0" prefHeight="26.0" prefWidth="119.0" promptText="title" />
-      <JFXTextField fx:id="txtSupplierItem" layoutX="42.0" layoutY="120.0" promptText="Item" />
-      <JFXTextField fx:id="txtSupplierCompany" layoutX="196.0" layoutY="120.0" promptText="Company" />
-      <TableView fx:id="tblSupplier" layoutX="26.0" layoutY="253.0" prefHeight="200.0" prefWidth="778.0">
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="211.0" layoutX="242.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="821.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <JFXTextField fx:id="txtSupplierName" layoutX="800.0" layoutY="112.0" promptText="supplier name">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtSupplierId" layoutX="324.0" layoutY="107.0" promptText="supplier id">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtContactNumber" layoutX="800.0" layoutY="177.0" promptText="contactNumber">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtSupplierEmailAddress" layoutX="324.0" layoutY="242.0" promptText="email address">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <JFXComboBox fx:id="txtTitle" layoutX="562.0" layoutY="108.0" prefHeight="26.0" prefWidth="119.0" promptText="title" />
+      <JFXTextField fx:id="txtSupplierItem" layoutX="324.0" layoutY="177.0" promptText="Item">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtSupplierCompany" layoutX="560.0" layoutY="178.0" promptText="Company">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font></JFXTextField>
+      <TableView fx:id="tblSupplier" layoutX="200.0" layoutY="313.0" prefHeight="290.0" prefWidth="902.0" styleClass="dashboard-colour2">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="id" />
           <TableColumn fx:id="colTitle" prefWidth="75.0" text="title" />
-            <TableColumn fx:id="colName" prefWidth="94.4000244140625" text="name" />
-            <TableColumn fx:id="colItem" prefWidth="96.79998779296875" text="item" />
-            <TableColumn fx:id="colCompany" prefWidth="94.4000244140625" text="company" />
-            <TableColumn fx:id="colContactNumber" prefWidth="160.00003051757812" text="contactNumber" />
-            <TableColumn fx:id="colEmailAddress" prefWidth="182.4000244140625" text="emailAddress" />
+            <TableColumn fx:id="colName" prefWidth="117.60003662109375" text="name" />
+            <TableColumn fx:id="colItem" prefWidth="98.39999389648438" text="item" />
+            <TableColumn fx:id="colCompany" prefWidth="179.20001220703125" text="company" />
+            <TableColumn fx:id="colContactNumber" prefWidth="184.7999267578125" text="contactNumber" />
+            <TableColumn fx:id="colEmailAddress" prefWidth="172.800048828125" text="emailAddress" />
         </columns>
+         <stylesheets>
+            <URL value="@../css/table.css" />
+            <URL value="@../css/table.css" />
+         </stylesheets>
       </TableView>
-      <Button layoutX="304.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #4cd137;" text="Add" textFill="WHITE">
+      <Button layoutX="637.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #4cd137;" text="Add" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="395.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #4cd137;" text="Update" textFill="WHITE">
+      <Button layoutX="728.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #4cd137;" text="Update" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="490.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #4cd137;" text="Search" textFill="WHITE">
+      <Button layoutX="823.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #4cd137;" text="Search" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="587.0" layoutY="186.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #4cd137;" text="Delete" textFill="WHITE">
+      <Button layoutX="920.0" layoutY="243.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="60.0" style="-fx-background-color: #4cd137;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="214.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="859.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" blue="0.8999999761581421" opacity="0.8999999761581421" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="495.0" layoutY="19.0" text="Manage Suppliers" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="36.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="604.0" layoutX="-100.0" width="300.0" />
+      <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="82.0" layoutY="16.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="32.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="29.0" fitWidth="32.0" layoutX="50.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/dashboardicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="28.0" layoutX="50.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/employeeicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="48.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/charticon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="28.0" layoutX="50.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/men%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="26.0" layoutX="48.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/ietm%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="51.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/lorry%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="51.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/about%20icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="101.0" layoutY="101.0" onAction="#btnDashboardFormOnAction" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="101.0" layoutY="148.0" onAction="#btnNewEmployeeOnAction" text="New Employee" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="100.0" layoutY="195.0" onAction="#btnAllReportsOnAction" text="All Reports" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="102.0" layoutY="244.0" onAction="#btnCustomersOnAction" text="Customers" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="105.0" layoutY="294.0" onAction="#btnAddItemOnAction" text="Add Item" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="107.0" layoutY="343.0" onAction="#btnSupplierOnAction" text="Supplier" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="106.0" layoutY="389.0" onAction="#btnAboutUsOnAction" text="About us" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
