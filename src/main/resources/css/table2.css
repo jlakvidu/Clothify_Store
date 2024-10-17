@@ -1,0 +1,35 @@
+/* Table View Style */
+.table-view {
+    -fx-background-color: #f0f8ff; /* Light blue background for the table */
+    -fx-border-color: #007bff; /* Blue border around the table */
+    -fx-border-width: 1;
+}
+
+/* Table Header Style */
+.table-view .column-header {
+    -fx-background-color: #007bff; /* Blue background for the header */
+    -fx-text-fill: white; /* White text color for the header */
+    -fx-font-weight: bold; /* Bold text in the header */
+}
+
+/* Table Row Style */
+.table-view .table-row-cell {
+    -fx-background-color: white; /* White background for table rows */
+    -fx-text-fill: black; /* Black text color for table rows */
+}
+
+/* Highlighted Row Style */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #0056b3; /* Darker blue for selected rows */
+    -fx-text-fill: white; /* White text for selected rows */
+}
+
+/* Alternating Row Colors */
+.table-view .table-row-cell:nth-child(odd) {
+    -fx-background-color: #e6f7ff; /* Light blue for odd rows */
+}
+
+/* Cell Style */
+.table-view .table-cell {
+    -fx-padding: 10; /* Padding inside table cells */
+}

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,9 +14,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="566.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
+<AnchorPane prefHeight="662.0" prefWidth="1068.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminDashboardFormController">
    <children>
-       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="566.0" layoutX="-120.0" width="300.0">
+       <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="663.0" layoutX="-120.0" width="300.0">
            <!-- Optional: Gradient fill can also be applied with a linear gradient if needed -->
        </Rectangle>
       <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
@@ -102,7 +104,7 @@
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="218.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="640.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="218.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="834.0">
          <fill>
             <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
                <stops>
@@ -120,12 +122,12 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Label layoutX="436.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+      <Label layoutX="531.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="176.0" layoutX="193.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="176.0" layoutX="193.0" layoutY="86.0" stroke="BLACK" strokeType="INSIDE" width="855.0">
          <fill>
             <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
                <stops>
@@ -143,80 +145,80 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="218.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="376.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="533.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="694.0" layoutY="103.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efff1f" height="29.0" layoutX="218.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#969696" height="29.0" layoutX="376.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="533.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f81fff" height="29.0" layoutX="694.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="142.0" />
-      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="261.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="218.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="194.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="638.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="187.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="842.0" layoutY="99.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="187.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="143.0" layoutX="427.0" layoutY="102.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="194.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#efff1f" height="29.0" layoutX="218.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="194.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#969696" height="29.0" layoutX="427.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="194.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="29.0" layoutX="638.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="187.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f81fff" height="29.0" layoutX="842.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="187.0" />
+      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="280.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/chart%20black.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="54.0" fitWidth="48.0" layoutX="423.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="54.0" fitWidth="48.0" layoutX="500.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/orderblack.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="575.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="700.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/customersblack.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="738.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="902.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/ietmblack.png" />
          </image>
       </ImageView>
-      <Label layoutX="251.0" layoutY="109.0" text="Total Sales">
+      <Label layoutX="271.0" layoutY="110.0" text="Total Sales">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="405.0" layoutY="109.0" text="Total Orders">
+      <Label layoutX="465.0" layoutY="109.0" text="Total Employees">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="550.0" layoutY="109.0" text="Total Customers">
+      <Label layoutX="671.0" layoutY="109.0" text="Total Customers">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="728.0" layoutY="109.0" text="Sold Items">
+      <Label layoutX="899.0" layoutY="107.0" text="Sold Items">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="232.0" layoutY="206.0" text="Rs :">
+      <Label layoutX="233.0" layoutY="210.0" text="Rs :">
          <font>
-            <Font name="Tw Cen MT Bold" size="24.0" />
+            <Font name="Tw Cen MT Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrders" layoutX="441.0" layoutY="209.0" text="0">
-         <font>
-            <Font name="Tw Cen MT" size="23.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblCustomers" layoutX="598.0" layoutY="209.0" text="0">
+      <Label fx:id="lblEmployees" layoutX="518.0" layoutY="205.0" text="0">
          <font>
             <Font name="Tw Cen MT" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="lblSales" layoutX="283.0" layoutY="209.0" text="0">
+      <Label fx:id="lblCustomers" layoutX="723.0" layoutY="207.0" text="0">
          <font>
             <Font name="Tw Cen MT" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="lblItems" layoutX="766.0" layoutY="209.0" text="0">
+      <Label fx:id="lblSales" layoutX="283.0" layoutY="208.0" text="0">
+         <font>
+            <Font name="Tw Cen MT" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblItems" layoutX="930.0" layoutY="207.0" text="0">
          <font>
             <Font name="Tw Cen MT" size="23.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="281.0" layoutX="193.0" layoutY="278.0" stroke="BLACK" strokeType="INSIDE" width="695.0">
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="379.0" layoutX="193.0" layoutY="278.0" stroke="BLACK" strokeType="INSIDE" width="855.0">
          <fill>
             <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
                <stops>
@@ -234,7 +236,11 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <VBox fx:id="chartContainer" layoutX="227.0" layoutY="288.0" prefHeight="250.0" prefWidth="391.0" />
+      <VBox fx:id="chartContainer" layoutX="206.0" layoutY="288.0" prefHeight="358.0" prefWidth="391.0" />
+      <PieChart fx:id="pieChart" layoutX="613.0" layoutY="288.0" prefHeight="358.0" prefWidth="408.0" />
+      <Button layoutX="81.0" layoutY="572.0" mnemonicParsing="false" onAction="#btnShowOnAction" text="Show 01" />
+      <Button layoutX="81.0" layoutY="604.0" mnemonicParsing="false" onAction="#btnShow02OnAction" text="Show 02" />
+      <Button layoutX="81.0" layoutY="633.0" mnemonicParsing="false" onAction="#btnShow03OnAction" text="Show 03" />
       
    </children>
 </AnchorPane>

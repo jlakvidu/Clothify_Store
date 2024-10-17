@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -171,7 +172,7 @@ public class EmployeeDashboardFormController implements Initializable {
         ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
         Item item = itemService.searchItem(itemId);
         if (item != null) {
-            txtStock.setText(String.valueOf(item.getQty())); // Update the stock TextField
+            txtStock.setText(String.valueOf(item.getQty()));
         }
     }
 
@@ -240,7 +241,20 @@ public class EmployeeDashboardFormController implements Initializable {
             Order order = new Order(txtOrderId.getText(), LocalDateTime.now(), txtEmpId.getText(),txtEmail.getText(), orderDetailsList);
             OrderService orderService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
             orderService.placeOrder(order);
+            
+            Receipt receipt = new Receipt(
+                    txtOrderId.getText(),
+                    txtCustomerName.getText(),
+                    txtCustomerAddress.getText(),
+                    new ArrayList<>(cartTMS),
+                    Double.parseDouble(txtDiscount.getText()),
+                    Double.parseDouble(lblNetTotal.getText().split(" ")[0]),
+                    LocalDateTime.now()
+            );
 
+            showReceipt(receipt);
+            
+            
             cartTMS.clear();
             //lblItemCount.setText("Item Count :- 0");
             //lblSubTotal.setText("Sub Total :- 0.0/=");
@@ -251,7 +265,21 @@ public class EmployeeDashboardFormController implements Initializable {
         }
     }
 
+    private void showReceipt(Receipt receipt) {
+        Stage receiptStage = new Stage();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/receipt_form_fxml.fxml"));
+            Parent root = loader.load();
 
+            ReceiptFormController controller = loader.getController();
+            controller.initializeReceipt(receipt);
+
+            receiptStage.setScene(new Scene(root));
+            receiptStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML

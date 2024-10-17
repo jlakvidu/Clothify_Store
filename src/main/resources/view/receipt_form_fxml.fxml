@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="611.0" prefWidth="592.0" style="-fx-background-color: #f5f6fa;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReceiptFormController">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6fb1ef" height="29.0" layoutX="164.0" layoutY="573.0" stroke="#6fb1ef" strokeType="INSIDE" width="263.0" />
+    <Label fx:id="lblOrderId" layoutX="340.0" layoutY="145.0" prefHeight="18.0" prefWidth="68.0" text="O001">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font></Label>
+    <Label fx:id="lblCustomerName" layoutX="340.0" layoutY="166.0" prefHeight="18.0" prefWidth="68.0" text="Janith">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font></Label>
+    <Label fx:id="lblCustomerAddress" layoutX="340.0" layoutY="188.0" prefHeight="18.0" prefWidth="68.0" text="Kuruwita">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font></Label>
+    <Label fx:id="lblDiscount" layoutX="340.0" layoutY="211.0" prefHeight="18.0" prefWidth="68.0" text="Discount">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font></Label>
+    <Label fx:id="lblTotalPrice" layoutX="340.0" layoutY="233.0" prefHeight="18.0" prefWidth="68.0" text="Total">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font></Label>
+    <Button layoutX="471.0" layoutY="506.0" onAction="#handlePrintReceipt" style="-fx-background-color: #487eb0;" text="Print" textFill="WHITE">
+      <font>
+         <Font name="Verdana Bold" size="15.0" />
+      </font></Button>
+   <TableView fx:id="tblItems" layoutX="47.0" layoutY="290.0" prefHeight="200.0" prefWidth="482.0" stylesheets="@../css/table2.css">
+     <columns>
+       <TableColumn fx:id="colItemId" prefWidth="75.0" text="Item Id" />
+       <TableColumn fx:id="colItemName" prefWidth="90.4000244140625" text="Item Name" />
+         <TableColumn fx:id="colQty" prefWidth="86.39996337890625" text="Qty" />
+         <TableColumn fx:id="colPrice" prefWidth="101.60003662109375" text="Price" />
+         <TableColumn fx:id="colTotal" prefWidth="139.20004272460938" text="Total" />
+     </columns>
+   </TableView>
+   <ImageView fitHeight="86.0" fitWidth="95.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../img/logo.png" />
+      </image>
+   </ImageView>
+   <Label layoutX="113.0" layoutY="24.0" text="Clothify Store" textFill="#009dff">
+      <font>
+         <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+      </font>
+   </Label>
+   <Label layoutX="116.0" layoutY="39.0" text="Panadura">
+      <font>
+         <Font name="Bell MT Bold" size="13.0" />
+      </font>
+   </Label>
+   <Label layoutX="116.0" layoutY="50.0" text="12500">
+      <font>
+         <Font name="Bell MT Bold" size="13.0" />
+      </font>
+   </Label>
+   <Label layoutX="115.0" layoutY="64.0" text="+94 77 484 1006">
+      <font>
+         <Font name="Bell MT Bold" size="13.0" />
+      </font>
+   </Label>
+   <Label layoutX="116.0" layoutY="79.0" text="clothifystore@gmail.com">
+      <font>
+         <Font name="Bell MT Bold" size="13.0" />
+      </font>
+   </Label>
+   <Label layoutX="361.0" layoutY="49.0" text="Date">
+      <font>
+         <Font name="Tw Cen MT Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="360.0" layoutY="73.0" text="Time">
+      <font>
+         <Font name="Tw Cen MT Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="lblDate" layoutX="434.0" layoutY="50.0" text="2024/10/17">
+      <font>
+         <Font name="Tw Cen MT Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="lblTime" layoutX="436.0" layoutY="73.0" text="2:15">
+      <font>
+         <Font name="Tw Cen MT Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label layoutX="161.0" layoutY="147.0" text="Order ID">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="160.0" layoutY="168.0" text="Customer Name">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="160.0" layoutY="190.0" text="Customer Address">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="161.0" layoutY="213.0" text="Discount">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="162.0" layoutY="235.0" text="Total">
+      <font>
+         <Font name="Verdana" size="12.0" />
+      </font>
+   </Label>
+   <Label layoutX="288.0" layoutY="139.0" prefHeight="18.0" prefWidth="2.0" text="-">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="288.0" layoutY="160.0" prefHeight="18.0" prefWidth="2.0" text="-">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="288.0" layoutY="182.0" prefHeight="18.0" prefWidth="2.0" text="-">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="289.0" layoutY="205.0" prefHeight="18.0" prefWidth="2.0" text="-">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="289.0" layoutY="227.0" prefHeight="18.0" prefWidth="2.0" text="-">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="397.0" layoutY="9.0" text="RECEIPT">
+      <font>
+         <Font name="Verdana Bold" size="23.0" />
+      </font>
+   </Label>
+   <Label layoutX="214.0" layoutY="578.0" prefHeight="18.0" prefWidth="180.0" text="ThANK FOR YOUR BUSSINESS" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font name="Tw Cen MT Bold Italic" size="15.0" />
+      </font>
+   </Label>
+   <Line endX="520.300048828125" layoutX="97.0" layoutY="109.0" startX="-100.0" stroke="#008cff" />
+   <Line endX="520.300048828125" layoutX="97.0" layoutY="114.0" startX="-100.0" stroke="#008cff" />
+</AnchorPane>

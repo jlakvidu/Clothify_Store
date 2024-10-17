@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeReportFormController">
+   <children>
+      <TableView fx:id="tblEmployees" layoutY="63.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colEmployeeId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colEmployeeName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colEmployeeTitle" prefWidth="75.0" text="Title" />
+            <TableColumn fx:id="colEmployeeAddress" prefWidth="94.39996337890625" text="Address" />
+            <TableColumn fx:id="colEmployeeEmail" prefWidth="120.79998779296875" text="Email Address" />
+            <TableColumn fx:id="colContactNumber" prefWidth="159.2000732421875" text="Conatct Number" />
+        </columns>
+      </TableView>
+      <Button layoutX="524.0" layoutY="356.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" text="Print" />
+   </children>
+</AnchorPane>

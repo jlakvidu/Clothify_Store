@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="387.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryReportFormController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="627.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/background%20image.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="539.0" layoutY="356.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: #4cd137;" text="Print" textFill="WHITE">
+         <font>
+            <Font name="Tw Cen MT" size="17.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tblItems" layoutY="107.0" prefHeight="242.0" prefWidth="626.0" stylesheets="@../css/table2.css">
+        <columns>
+          <TableColumn fx:id="colItemId" prefWidth="85.5999755859375" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="77.60003662109375" text="Name" />
+            <TableColumn fx:id="colSupId" prefWidth="98.40000915527344" text="Supplier ID" />
+            <TableColumn fx:id="colPrice" prefWidth="113.5999755859375" text="Price" />
+            <TableColumn fx:id="colQty" prefWidth="110.4000244140625" text="QTY" />
+            <TableColumn fx:id="colSize" prefWidth="136.800048828125" text="Size" />
+        </columns>
+      </TableView>
+      <Label layoutX="114.0" layoutY="22.0" text="INVENTORY REPORT" textFill="#0d0d0d">
+         <font>
+            <Font name="Verdana Bold" size="33.0" />
+         </font>
+      </Label>
+      <Line endX="520.300048828125" layoutX="104.0" layoutY="80.0" startX="-100.0" stroke="#008cff" />
+      <Line endX="520.300048828125" layoutX="104.0" layoutY="85.0" startX="-100.0" stroke="#008cff" />
+   </children>
+</AnchorPane>

@@ -5,6 +5,7 @@ import dto.OrderDetails;
 import entity.OrderDetailsEntity;
 import entity.OrderEntity;
 import entity.ItemEntity;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -40,5 +41,10 @@ public class OrderServiceImpl implements OrderService {
         orderDao.save(orderEntity);
 
         return true;
+    }
+
+    @Override
+    public ObservableList<Order> getAll() {
+        return null;
     }
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierReportFormController">
+   <children>
+      <TableView fx:id="tblSuppliers" layoutX="15.0" layoutY="111.0" prefHeight="200.0" prefWidth="570.0">
+        <columns>
+          <TableColumn fx:id="colSupplierId" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="colSupplierTitle" prefWidth="75.0" text="Title" />
+            <TableColumn fx:id="colSupplierName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colSupplierItem" prefWidth="75.0" text="Item" />
+            <TableColumn fx:id="colSupplierCompany" prefWidth="75.0" text="Company" />
+            <TableColumn fx:id="colSupplierContactNumber" prefWidth="75.0" text="ContactNumber" />
+            <TableColumn fx:id="colSupplierEmailAddress" prefWidth="118.39999999999998" text="Email Address" />
+        </columns>
+      </TableView>
+      <Button layoutX="534.0" layoutY="366.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" text="Print" />
+   </children>
+</AnchorPane>
