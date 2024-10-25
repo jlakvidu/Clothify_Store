@@ -78,6 +78,27 @@ public class ItemFormController implements Initializable {
     @FXML
     private JFXTextField txtUnitPrice;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colItemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colSupId.setCellValueFactory(new PropertyValueFactory<>("supId"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
+
+        generateID();
+        loadTable();
+
+        tblItem.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue != null) {
+                setTextToValues((Item) newValue);
+            } else {
+                return;
+            }
+        }));
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
         if (txtItemId.getText().isEmpty() ||
@@ -278,27 +299,6 @@ public class ItemFormController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colItemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colSupId.setCellValueFactory(new PropertyValueFactory<>("supId"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
-
-        generateID();
-        loadTable();
-
-        tblItem.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Item) newValue);
-            } else {
-                return;
-            }
-        }));
     }
 
     private void setTextToValues(Item newValue) {

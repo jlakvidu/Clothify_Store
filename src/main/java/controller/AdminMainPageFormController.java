@@ -1,14 +1,11 @@
 package controller;
 
-import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import dto.User;
-import entity.UserEntity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -20,8 +17,6 @@ import service.custom.UserService;
 import util.ServiceType;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class AdminMainPageFormController {
 
@@ -35,21 +30,6 @@ public class AdminMainPageFormController {
     public JFXPasswordField txtPassword;
     @FXML
     private JFXTextField txtEmailAddress;
-
-
-    @FXML
-    void btnEmployeeOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_main_page.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
 
     @FXML
     void btnSignInOnAction(ActionEvent event) {
@@ -101,4 +81,17 @@ public class AdminMainPageFormController {
         currentStage.close();
     }
 
+    @FXML
+    void btnEmployeeOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_main_page.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
 }

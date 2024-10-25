@@ -1,6 +1,5 @@
 package service.custom;
 
-import dto.Customer;
 import dto.Employee;
 import javafx.collections.ObservableList;
 import service.SuperService;

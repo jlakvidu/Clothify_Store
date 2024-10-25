@@ -1,8 +1,5 @@
 package repository;
 
-import dto.Customer;
-import javafx.collections.ObservableList;
-
 import java.util.List;
 
 public interface CrudDao<T> extends SuperDao {

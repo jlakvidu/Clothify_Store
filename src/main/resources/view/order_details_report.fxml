@@ -49,11 +49,10 @@
       </Label>
       <TableView fx:id="tblOrderDetails" layoutX="1.0" layoutY="131.0" prefHeight="304.0" prefWidth="762.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="114.40002596378326" text="Id" />
           <TableColumn fx:id="colOrderId" prefWidth="174.39998626708984" text="Order Id" />
-            <TableColumn fx:id="colItemId" prefWidth="161.5999755859375" text="Item Id" />
-            <TableColumn fx:id="colQty" prefWidth="142.40005493164062" text="Qty" />
-            <TableColumn fx:id="colPrice" prefWidth="172.800048828125" text="Price" />
+            <TableColumn fx:id="colItemId" prefWidth="179.2000732421875" text="Item Id" />
+            <TableColumn fx:id="colQty" prefWidth="201.59994506835938" text="Qty" />
+            <TableColumn fx:id="colPrice" prefWidth="207.2000732421875" text="Price" />
         </columns>
       </TableView>
    </children>

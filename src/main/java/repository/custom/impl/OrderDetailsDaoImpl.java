@@ -2,6 +2,8 @@ package repository.custom.impl;
 
 import entity.EmployeeEntity;
 import entity.OrderDetailsEntity;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import repository.custom.OrderDetailsDao;
 import util.HibernateUtil;
@@ -36,16 +38,14 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     }
 
     @Override
-    public List<OrderDetailsEntity> getAll() {
-        Session session = HibernateUtil.getSession();
-        session.beginTransaction();
+    public ObservableList<OrderDetailsEntity> getAll() {
+        ObservableList<OrderDetailsEntity> orderDetailsList = FXCollections.observableArrayList();
 
-        List<OrderDetailsEntity> orderDetailsEntityList = session.createQuery("FROM OrderDetailsEntity", OrderDetailsEntity.class).list();
+        try (Session session = HibernateUtil.getSession()) {
+            orderDetailsList.addAll(session.createQuery("FROM OrderDetailsEntity", OrderDetailsEntity.class).list());
+        }
 
-        session.getTransaction().commit();
-        session.close();
-
-        return orderDetailsEntityList;
+        return orderDetailsList;
     }
 
     public double getTotalSalesPrice() {

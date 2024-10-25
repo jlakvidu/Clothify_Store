@@ -2,7 +2,6 @@ package controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import dto.Customer;
 import dto.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,7 +18,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.ServiceFactory;
-import service.custom.CustomerService;
 import service.custom.EmployeeService;
 import util.ServiceType;
 
@@ -64,6 +62,30 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     private JFXTextField txtEmployeeName;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
+        coltitle.setCellValueFactory(new PropertyValueFactory<>("employeeTitle"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("employeeAddress"));
+        colEmailAddress.setCellValueFactory(new PropertyValueFactory<>("employeeEmailAddress"));
+        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
+        ObservableList<String> titles = FXCollections.observableArrayList();
+        titles.add("Mr ");
+        titles.add("Miss ");
+        titles.add("Ms ");
+        txtTitle.setItems(titles);
+        generateID();
+        loadTable();
+        tblEmployee.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue != null) {
+                setTextToValues((Employee) newValue);
+            } else {
+                return;
+            }
+        }));
+    }
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -214,30 +236,6 @@ public class EmployeeFormController implements Initializable {
             alert.setContentText("Employee couldn't be updated.");
             alert.show();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colId.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
-        coltitle.setCellValueFactory(new PropertyValueFactory<>("employeeTitle"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("employeeAddress"));
-        colEmailAddress.setCellValueFactory(new PropertyValueFactory<>("employeeEmailAddress"));
-        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("contactNumber"));
-        ObservableList<String> titles = FXCollections.observableArrayList();
-        titles.add("Mr ");
-        titles.add("Miss ");
-        titles.add("Ms ");
-        txtTitle.setItems(titles);
-        generateID();
-        loadTable();
-        tblEmployee.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Employee) newValue);
-            } else {
-                return;
-            }
-        }));
     }
 
     private void setTextToValues(Employee newValue) {

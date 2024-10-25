@@ -67,32 +67,25 @@ public class EmployeeItemFormController implements Initializable {
     @FXML
     private JFXTextField txtUnitPrice;
 
-    @FXML
-    void btnAboutUsOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_about_us_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colItemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colSupId.setCellValueFactory(new PropertyValueFactory<>("supId"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
 
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
+        generateID();
+        loadTable();
 
-    @FXML
-    void btnAddItemOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_item_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
+        tblItem.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue != null) {
+                setTextToValues((Item) newValue);
+            } else {
+                return;
+            }
+        }));
     }
 
     @FXML
@@ -119,20 +112,6 @@ public class EmployeeItemFormController implements Initializable {
     }
 
     @FXML
-    void btnCustomersOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_customer_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
-
-    @FXML
     void btnDeleteOnAction(ActionEvent event) {
         ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
         if(itemService.deleteItem(txtItemId.getText())){
@@ -145,20 +124,6 @@ public class EmployeeItemFormController implements Initializable {
             alert.setContentText("Item Didn't Found");
             alert.show();
         }
-    }
-
-    @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_dashboard.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
     }
 
     @FXML
@@ -179,20 +144,6 @@ public class EmployeeItemFormController implements Initializable {
             alert.setContentText("No Item found with ID: " + txtItemId.getText());
             alert.showAndWait();
         }
-    }
-
-    @FXML
-    void btnSupplierOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
     }
 
     @FXML
@@ -245,27 +196,6 @@ public class EmployeeItemFormController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colItemId.setCellValueFactory(new PropertyValueFactory<>("itemId"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colSupId.setCellValueFactory(new PropertyValueFactory<>("supId"));
-        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colSize.setCellValueFactory(new PropertyValueFactory<>("size"));
-
-        generateID();
-        loadTable();
-
-        tblItem.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Item) newValue);
-            } else {
-                return;
-            }
-        }));
-    }
-
     private void setTextToValues(Item newValue) {
         txtItemId.setText(newValue.getItemId());
         txtItemName.setText(newValue.getName());
@@ -279,5 +209,75 @@ public class EmployeeItemFormController implements Initializable {
         ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
         ObservableList<Item> items = itemService.getAll();
         tblItem.setItems(items);
+    }
+
+    @FXML
+    void btnAboutUsOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_about_us_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnAddItemOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_item_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_dashboard.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnSupplierOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnCustomersOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_customer_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }

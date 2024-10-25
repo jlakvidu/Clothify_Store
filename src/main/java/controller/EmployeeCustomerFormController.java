@@ -85,32 +85,31 @@ public class EmployeeCustomerFormController implements Initializable {
     @FXML
     private JFXComboBox<String> txtTitle;
 
-    @FXML
-    void btnAboutUsOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_about_us_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
-
-    @FXML
-    void btnAddItemOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_item_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("custId"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("custTitle"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("custName"));
+        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("custAddress"));
+        colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
+        colProvince.setCellValueFactory(new PropertyValueFactory<>("province"));
+        colPostalCode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
+        loadTable();
+        generateID();
+        ObservableList<String> titles = FXCollections.observableArrayList();
+        titles.add("Mr ");
+        titles.add("Miss ");
+        titles.add("Ms ");
+        txtTitle.setItems(titles);
+        tblCustomer.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue != null) {
+                setTextToValues((Customer) newValue);
+            } else {
+                return;
+            }
+        }));
     }
 
     @FXML
@@ -139,34 +138,6 @@ public class EmployeeCustomerFormController implements Initializable {
     }
 
     @FXML
-    void btnCustomersOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_customer_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
-
-    @FXML
-    void btnPlaceOrderOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_dashboard.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
-    }
-
-    @FXML
     void btnSearchOnAction(ActionEvent event) {
         CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         Customer customer = customerService.searchCustomer(txtId.getText());
@@ -187,20 +158,6 @@ public class EmployeeCustomerFormController implements Initializable {
             alert.setContentText("No customer found with ID: " + txtId.getText());
             alert.showAndWait();
         }
-    }
-
-    @FXML
-    void btnSupplierOnAction(ActionEvent event) {
-        Stage newStage = new Stage();
-        try {
-            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_supplier_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        newStage.show();
-
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.close();
     }
 
     @FXML
@@ -243,33 +200,6 @@ public class EmployeeCustomerFormController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colId.setCellValueFactory(new PropertyValueFactory<>("custId"));
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("custTitle"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("custName"));
-        colDob.setCellValueFactory(new PropertyValueFactory<>("dob"));
-        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("custAddress"));
-        colCity.setCellValueFactory(new PropertyValueFactory<>("city"));
-        colProvince.setCellValueFactory(new PropertyValueFactory<>("province"));
-        colPostalCode.setCellValueFactory(new PropertyValueFactory<>("postalCode"));
-        loadTable();
-        generateID();
-        ObservableList<String> titles = FXCollections.observableArrayList();
-        titles.add("Mr ");
-        titles.add("Miss ");
-        titles.add("Ms ");
-        txtTitle.setItems(titles);
-        tblCustomer.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Customer) newValue);
-            } else {
-                return;
-            }
-        }));
-    }
-
     private void setTextToValues(Customer newValue) {
         txtId.setText(newValue.getCustId());
         txtTitle.setValue(newValue.getCustTitle());
@@ -308,5 +238,75 @@ public class EmployeeCustomerFormController implements Initializable {
         CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         ObservableList<Customer> customers = customerService.getAll();
         tblCustomer.setItems(customers);
+    }
+
+    @FXML
+    void btnAboutUsOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_about_us_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnAddItemOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_item_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnCustomersOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_customer_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnPlaceOrderOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_dashboard.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    @FXML
+    void btnSupplierOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_supplier_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }

@@ -75,6 +75,31 @@ public class SupplierFormController implements Initializable {
     @FXML
     private JFXComboBox<String> txtTitle;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        colId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
+        colTitle.setCellValueFactory(new PropertyValueFactory<>("supplierTitle"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
+        colItem.setCellValueFactory(new PropertyValueFactory<>("supplierItem"));
+        colCompany.setCellValueFactory(new PropertyValueFactory<>("supplierCompany"));
+        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("supplierContactNumber"));
+        colEmailAddress.setCellValueFactory(new PropertyValueFactory<>("supplierEmailAddress"));
+        ObservableList<String> titles = FXCollections.observableArrayList();
+        titles.add("Mr ");
+        titles.add("Miss ");
+        titles.add("Ms ");
+        txtTitle.setItems(titles);
+        generateID();
+        loadTable();
+        tblSupplier.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue != null) {
+                setTextToValues((Supplier) newValue);
+            } else {
+                return;
+            }
+        }));
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
         SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
@@ -229,32 +254,6 @@ public class SupplierFormController implements Initializable {
             alert.setContentText("Supplier didn't update.");
             alert.show();
         }
-    }
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        colId.setCellValueFactory(new PropertyValueFactory<>("supplierId"));
-        colTitle.setCellValueFactory(new PropertyValueFactory<>("supplierTitle"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
-        colItem.setCellValueFactory(new PropertyValueFactory<>("supplierItem"));
-        colCompany.setCellValueFactory(new PropertyValueFactory<>("supplierCompany"));
-        colContactNumber.setCellValueFactory(new PropertyValueFactory<>("supplierContactNumber"));
-        colEmailAddress.setCellValueFactory(new PropertyValueFactory<>("supplierEmailAddress"));
-        ObservableList<String> titles = FXCollections.observableArrayList();
-        titles.add("Mr ");
-        titles.add("Miss ");
-        titles.add("Ms ");
-        txtTitle.setItems(titles);
-        generateID();
-        loadTable();
-        tblSupplier.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (newValue != null) {
-                setTextToValues((Supplier) newValue);
-            } else {
-                return;
-            }
-        }));
     }
 
     private void setTextToValues(Supplier newValue) {

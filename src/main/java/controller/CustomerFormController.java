@@ -101,6 +101,21 @@ public class CustomerFormController implements Initializable {
         txtPostalCode.setText(newValue.getPostalCode());
     }
 
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public void loadTable(){
+        CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+        ObservableList<Customer> customers = customerService.getAll();
+        tblCustomer.setItems(customers);
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
         if (txtId.getText().isEmpty() || txtTitle.getValue() == null || txtName.getText().isEmpty() ||
@@ -156,45 +171,6 @@ public class CustomerFormController implements Initializable {
             alert.setContentText("Customer Couldn't Be Added.");
             alert.show();
         }
-    }
-
-    private boolean isNumeric(String str) {
-        try {
-            Double.parseDouble(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-
-
-    public void generateID() {
-        try {
-            String SQL = "SELECT MAX(CustID) FROM customerentity";
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clothifystore", "root", "12345");
-            PreparedStatement pstm = connection.prepareStatement(SQL);
-            ResultSet resultSet = pstm.executeQuery();
-
-            int newId = 1;
-
-            if (resultSet.next()) {
-                String lastId = resultSet.getString(1);
-                if (lastId != null) {
-                    newId = Integer.parseInt(lastId.substring(1)) + 1;
-                }
-            }
-            txtId.setText(String.format("C%03d", newId));
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void loadTable(){
-        CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
-        ObservableList<Customer> customers = customerService.getAll();
-        tblCustomer.setItems(customers);
     }
 
     public void btnUpdateOnAction(ActionEvent event) {
@@ -287,6 +263,28 @@ public class CustomerFormController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Customer Didn't Found");
             alert.show();
+        }
+    }
+
+    public void generateID() {
+        try {
+            String SQL = "SELECT MAX(CustID) FROM customerentity";
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/clothifystore", "root", "12345");
+            PreparedStatement pstm = connection.prepareStatement(SQL);
+            ResultSet resultSet = pstm.executeQuery();
+
+            int newId = 1;
+
+            if (resultSet.next()) {
+                String lastId = resultSet.getString(1);
+                if (lastId != null) {
+                    newId = Integer.parseInt(lastId.substring(1)) + 1;
+                }
+            }
+            txtId.setText(String.format("C%03d", newId));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 

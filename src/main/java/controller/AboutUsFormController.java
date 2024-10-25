@@ -4,13 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class AboutUsFormController {
-    public ImageView rightImageView;
 
     public void btnNewEmployeeOnAction(ActionEvent actionEvent) {
         Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();

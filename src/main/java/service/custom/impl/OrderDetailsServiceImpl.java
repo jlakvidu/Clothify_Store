@@ -55,20 +55,18 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
     @Override
     public ObservableList<OrderDetails> getAll() {
         OrderDetailsDao orderDetailsDao = DaoFactory.getInstance().getDaoType(DaoType.ORDERDETAILS);
-        List<OrderDetailsEntity> all = orderDetailsDao.getAll();
-        ModelMapper modelMapper = new ModelMapper();
+        ObservableList<OrderDetailsEntity> entityList = (ObservableList<OrderDetailsEntity>) orderDetailsDao.getAll();
+        ObservableList<OrderDetails> orderDetailsList = FXCollections.observableArrayList();
 
-        // Add explicit mappings to avoid conflicts
-        modelMapper.typeMap(OrderDetailsEntity.class, OrderDetails.class).addMappings(mapper -> {
-            mapper.map(src -> src.getItem().getItemId(), OrderDetails::setItemId);
-            mapper.map(src -> src.getOrder().getOrderId(), OrderDetails::setOrderId);
-        });
-
-        ObservableList<OrderDetails> orderDetails = FXCollections.observableArrayList();
-        for (OrderDetailsEntity entity : all) {
-            OrderDetails orderDetails1 = modelMapper.map(entity, OrderDetails.class);
-            orderDetails.add(orderDetails1);
+        for (OrderDetailsEntity entity : entityList) {
+            OrderDetails dto = new OrderDetails();
+            dto.setOrderId(entity.getOrder().getOrderId());
+            dto.setItemId(entity.getItem().getItemId());
+            dto.setQty(entity.getQty());
+            dto.setPrice(entity.getPrice());
+            orderDetailsList.add(dto);
         }
-        return orderDetails;
+
+        return orderDetailsList;
     }
 }
