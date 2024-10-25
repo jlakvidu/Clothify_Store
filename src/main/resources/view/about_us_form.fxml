@@ -105,7 +105,7 @@
             <Image url="@../img/about%20icon.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="96.0" layoutY="158.0" text="Dashboard" textFill="WHITE">
+      <JFXButton layoutX="96.0" layoutY="158.0" onAction="#btnDashboardOnAction" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>

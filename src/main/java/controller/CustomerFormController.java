@@ -11,10 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.ServiceFactory;
@@ -106,10 +103,39 @@ public class CustomerFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+        if (txtId.getText().isEmpty() || txtTitle.getValue() == null || txtName.getText().isEmpty() ||
+                txtDob.getValue() == null || txtSalary.getText().isEmpty() || txtAddress.getText().isEmpty() ||
+                txtCity.getText().isEmpty() || txtProvince.getText().isEmpty() || txtPostalCode.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fields must be filled out.");
+            alert.show();
+            return;
+        }
+
+        if (!isNumeric(txtSalary.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid numeric value for salary.");
+            alert.show();
+            return;
+        }
+
+        if (!isNumeric(txtPostalCode.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid numeric postal code.");
+            alert.show();
+            return;
+        }
+
         Customer customer = new Customer(
                 txtId.getText(),
-                txtTitle.getValue().toString(),
+                txtTitle.getValue(),
                 txtName.getText(),
                 txtDob.getValue(),
                 Double.parseDouble(txtSalary.getText()),
@@ -118,16 +144,29 @@ public class CustomerFormController implements Initializable {
                 txtProvince.getText(),
                 txtPostalCode.getText()
         );
+
+        CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         if (customerService.addCustomer(customer)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Customer Added Successfully...");
             alert.show();
+            loadTable();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Customer Didn't added....");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Customer Couldn't Be Added.");
             alert.show();
         }
     }
+
+    private boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 
 
     public void generateID() {
@@ -158,7 +197,37 @@ public class CustomerFormController implements Initializable {
         tblCustomer.setItems(customers);
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+    public void btnUpdateOnAction(ActionEvent event) {
+        if (txtId.getText().isEmpty() || txtTitle.getValue() == null || txtName.getText().isEmpty() ||
+                txtDob.getValue() == null || txtSalary.getText().isEmpty() || txtAddress.getText().isEmpty() ||
+                txtCity.getText().isEmpty() || txtProvince.getText().isEmpty() || txtPostalCode.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fields must be filled out.");
+            alert.show();
+            return;
+        }
+
+        if (!isNumeric(txtSalary.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid numeric value for salary.");
+            alert.show();
+            return;
+        }
+
+        if (!isNumeric(txtPostalCode.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid numeric postal code.");
+            alert.show();
+            return;
+        }
+
         Customer customer = new Customer(
                 txtId.getText(),
                 txtTitle.getValue(),
@@ -170,18 +239,20 @@ public class CustomerFormController implements Initializable {
                 txtProvince.getText(),
                 txtPostalCode.getText()
         );
+
         CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
-        if(customerService.updateCustomer(customer)){
+        if (customerService.updateCustomer(customer)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Customer Updated Successfully..");
             alert.show();
             loadTable();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Customer didn't Updated ...");
+            alert.setContentText("Customer didn't Update ...");
             alert.show();
         }
     }
+
 
     public void btnSearchOnAction(ActionEvent actionEvent) {
         CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
@@ -233,9 +304,29 @@ public class CustomerFormController implements Initializable {
     }
 
     public void btnAllReportsOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
-    public void btnCustomersOnAction(ActionEvent event) {
+    public void btnCustomersOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/customer_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnAddItemOnAction(ActionEvent event) {

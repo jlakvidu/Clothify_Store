@@ -4,17 +4,21 @@ import dto.Item;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.ItemService;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -41,10 +45,6 @@ public class InventoryReportFormController implements Initializable {
     @FXML
     private TableView<Item> tblItems;
 
-    @FXML
-    void handlePrintReport(ActionEvent event) {
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -117,5 +117,18 @@ public class InventoryReportFormController implements Initializable {
         }
 
         return reportNode;
+    }
+
+    public void btnBackOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }

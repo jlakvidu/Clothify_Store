@@ -74,7 +74,16 @@ public class AdminDashboardFormController implements Initializable {
 
     @FXML
     void btnAllReportsOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
 
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 
     private StackedBarChart<String, Number> createStackedBarChart() {
@@ -206,33 +215,16 @@ public class AdminDashboardFormController implements Initializable {
         alert.showAndWait();
     }
 
-    public void btnShowOnAction(ActionEvent event) {
-        Stage stage = new Stage();
+    public void btnLogOutOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/inventory_report__form.fxml"))));
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_main_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        stage.show();
-    }
+        newStage.show();
 
-    public void btnShow02OnAction(ActionEvent event) {
-        Stage stage = new Stage();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_report_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage.show();
-    }
-
-    public void btnShow03OnAction(ActionEvent event) {
-        Stage stage = new Stage();
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/supplier_report_form.fxml"))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        stage.show();
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
     }
 }

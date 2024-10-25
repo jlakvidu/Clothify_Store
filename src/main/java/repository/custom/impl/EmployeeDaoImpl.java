@@ -3,6 +3,8 @@ package repository.custom.impl;
 import dto.Employee;
 import entity.CustomerEntity;
 import entity.EmployeeEntity;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import repository.custom.EmployeeDao;
 import util.HibernateUtil;
@@ -92,5 +94,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
         session.close();
 
         return employeeList;
+    }
+
+    public ObservableList<String> getEmployeeIds() {
+        List<EmployeeEntity> all = getAll();
+        ObservableList<String> employeeIds = FXCollections.observableArrayList();
+        all.forEach(employee->{
+            employeeIds.add(employee.getEmployeeId());
+        });
+        return employeeIds;
     }
 }

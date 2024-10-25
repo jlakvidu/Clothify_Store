@@ -4,18 +4,22 @@ import dto.Supplier;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import service.ServiceFactory;
 import service.custom.SupplierService;
 import util.ServiceType;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -142,4 +146,16 @@ public class SupplierReportFormController implements Initializable {
         return label;
     }
 
+    public void btnBackOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
 }

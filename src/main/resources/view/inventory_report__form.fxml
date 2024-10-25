@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,35 +11,50 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="387.0" prefWidth="628.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryReportFormController">
+<AnchorPane prefHeight="488.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InventoryReportFormController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="627.0" layoutX="1.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="495.0" fitWidth="826.0" layoutX="-44.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/background%20image.png" />
          </image>
       </ImageView>
-      <Button layoutX="539.0" layoutY="356.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" prefHeight="30.0" prefWidth="83.0" style="-fx-background-color: #4cd137;" text="Print" textFill="WHITE">
+      <Button layoutX="303.0" layoutY="446.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" prefHeight="30.0" prefWidth="193.0" style="-fx-background-color: #4cd137;" text="Print" textFill="WHITE">
          <font>
             <Font name="Tw Cen MT" size="17.0" />
          </font>
       </Button>
-      <TableView fx:id="tblItems" layoutY="107.0" prefHeight="242.0" prefWidth="626.0" stylesheets="@../css/table2.css">
+      <TableView fx:id="tblItems" layoutY="107.0" prefHeight="330.0" prefWidth="746.0" stylesheets="@../css/table2.css">
         <columns>
           <TableColumn fx:id="colItemId" prefWidth="85.5999755859375" text="ID" />
           <TableColumn fx:id="colName" prefWidth="77.60003662109375" text="Name" />
-            <TableColumn fx:id="colSupId" prefWidth="98.40000915527344" text="Supplier ID" />
-            <TableColumn fx:id="colPrice" prefWidth="113.5999755859375" text="Price" />
-            <TableColumn fx:id="colQty" prefWidth="110.4000244140625" text="QTY" />
-            <TableColumn fx:id="colSize" prefWidth="136.800048828125" text="Size" />
+            <TableColumn fx:id="colSupId" prefWidth="170.4000244140625" text="Supplier ID" />
+            <TableColumn fx:id="colPrice" prefWidth="126.39996337890625" text="Price" />
+            <TableColumn fx:id="colQty" prefWidth="126.4000244140625" text="QTY" />
+            <TableColumn fx:id="colSize" prefWidth="157.59991455078125" text="Size" />
         </columns>
       </TableView>
-      <Label layoutX="114.0" layoutY="22.0" text="INVENTORY REPORT" textFill="#0d0d0d">
+      <Label layoutX="185.0" layoutY="18.0" text="INVENTORY REPORT" textFill="#ff00ae" underline="true">
          <font>
             <Font name="Verdana Bold" size="33.0" />
          </font>
       </Label>
-      <Line endX="520.300048828125" layoutX="104.0" layoutY="80.0" startX="-100.0" stroke="#008cff" />
-      <Line endX="520.300048828125" layoutX="104.0" layoutY="85.0" startX="-100.0" stroke="#008cff" />
+      <Line endX="642.9999389648438" layoutX="104.0" layoutY="80.0" startX="-106.60001373291016" stroke="#008cff" />
+      <Line endX="642.9999389648438" layoutX="104.0" layoutY="85.0" startX="-104.9999771118164" stroke="#008cff" />
+      <JFXButton layoutX="672.0" layoutY="449.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #f5f6fa;" text="Back" underline="true" />
+      <ImageView fitHeight="56.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="60.0" layoutY="16.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="32.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

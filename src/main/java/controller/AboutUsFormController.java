@@ -26,6 +26,16 @@ public class AboutUsFormController {
     }
 
     public void btnAllReportsOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnCustomersOnAction(ActionEvent actionEvent) {
@@ -69,5 +79,18 @@ public class AboutUsFormController {
     }
 
     public void btnAboutUsOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDashboardOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/admin_dashboard.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 }

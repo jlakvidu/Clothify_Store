@@ -3,6 +3,9 @@ package service.custom.impl;
 import dto.User;
 import entity.ItemEntity;
 import entity.UserEntity;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
 import repository.SuperDao;
@@ -12,6 +15,7 @@ import service.custom.UserService;
 import util.DaoType;
 import org.mindrot.jbcrypt.BCrypt;
 import util.EmailUtil;
+import util.HibernateUtil;
 import util.OTPUtil;
 
 import java.util.HashMap;
@@ -146,5 +150,19 @@ public class UserServiceImpl implements UserService {
         return checkPassword(password, storedPassword);
     }
 
+    public boolean isEmailExists(String emailAddress) {
+        String sqlQuery = "SELECT COUNT(*) FROM UserEntity WHERE emailAddress = :emailAddress";
+        try (Session session = HibernateUtil.getSession()) {
+            Query<Long> countQuery = session.createQuery(sqlQuery, Long.class);
+            countQuery.setParameter("emailAddress", emailAddress);
+            return countQuery.uniqueResult() > 0;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

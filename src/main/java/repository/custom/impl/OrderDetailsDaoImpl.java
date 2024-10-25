@@ -1,5 +1,6 @@
 package repository.custom.impl;
 
+import entity.EmployeeEntity;
 import entity.OrderDetailsEntity;
 import org.hibernate.Session;
 import repository.custom.OrderDetailsDao;
@@ -36,7 +37,15 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 
     @Override
     public List<OrderDetailsEntity> getAll() {
-        return List.of();
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+
+        List<OrderDetailsEntity> orderDetailsEntityList = session.createQuery("FROM OrderDetailsEntity", OrderDetailsEntity.class).list();
+
+        session.getTransaction().commit();
+        session.close();
+
+        return orderDetailsEntityList;
     }
 
     public double getTotalSalesPrice() {

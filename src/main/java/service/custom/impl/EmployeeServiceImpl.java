@@ -10,6 +10,8 @@ import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
 import repository.custom.CustomerDao;
 import repository.custom.EmployeeDao;
+import repository.custom.impl.CustomerDaoImpl;
+import repository.custom.impl.EmployeeDaoImpl;
 import service.custom.EmployeeService;
 import util.DaoType;
 
@@ -55,5 +57,11 @@ public class EmployeeServiceImpl implements EmployeeService {
             employees.add(employee);
         }
         return employees;
+    }
+
+    @Override
+    public ObservableList<String> getEmployeeIds() {
+        EmployeeDaoImpl employeeDao = DaoFactory.getInstance().getDaoType(DaoType.EMPLOYEE);
+        return employeeDao.getEmployeeIds();
     }
 }

@@ -1,6 +1,5 @@
 package repository.custom.impl;
 
-import entity.EmployeeEntity;
 import entity.SupplierEntity;
 import org.hibernate.Session;
 import repository.custom.SupplierDao;

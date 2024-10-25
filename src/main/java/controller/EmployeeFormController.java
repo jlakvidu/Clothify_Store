@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -66,6 +67,36 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
+        if (txtEmployeeId.getText().isEmpty() || txtEmployeeName.getText().isEmpty() ||
+                txtTitle.getValue() == null || txtEmployeeAddress.getText().isEmpty() ||
+                txtEmployeeEmailAddress.getText().isEmpty() || txtContactNumber.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fields must be filled out.");
+            alert.show();
+            return;
+        }
+
+        if (!isValidEmail(txtEmployeeEmailAddress.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid email address.");
+            alert.show();
+            return;
+        }
+
+        if (!isValidContactNumber(txtContactNumber.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid 10-digit contact number.");
+            alert.show();
+            return;
+        }
+
         EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
         Employee employee = new Employee(
                 txtEmployeeId.getText(),
@@ -75,16 +106,27 @@ public class EmployeeFormController implements Initializable {
                 txtEmployeeEmailAddress.getText(),
                 txtContactNumber.getText()
         );
+
         if (employeeService.addEmployee(employee)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Employee Added Successfully...");
             alert.show();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Employee Didn't added....");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Employee couldn't be added.");
             alert.show();
         }
     }
+
+    private boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
+
+    private boolean isValidContactNumber(String contactNumber) {
+        return contactNumber.matches("\\d{10}");
+    }
+
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -122,6 +164,36 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        if (txtEmployeeId.getText().isEmpty() || txtEmployeeName.getText().isEmpty() ||
+                txtTitle.getValue() == null || txtEmployeeAddress.getText().isEmpty() ||
+                txtEmployeeEmailAddress.getText().isEmpty() || txtContactNumber.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("All fields must be filled out.");
+            alert.show();
+            return;
+        }
+
+        if (!isValidEmail(txtEmployeeEmailAddress.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid email address.");
+            alert.show();
+            return;
+        }
+
+        if (!isValidContactNumber(txtContactNumber.getText())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validation Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid 10-digit contact number.");
+            alert.show();
+            return;
+        }
+
         Employee employee = new Employee(
                 txtEmployeeId.getText(),
                 txtEmployeeName.getText(),
@@ -130,15 +202,16 @@ public class EmployeeFormController implements Initializable {
                 txtEmployeeEmailAddress.getText(),
                 txtContactNumber.getText()
         );
+
         EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
-        if(employeeService.updateEmployee(employee)){
+        if (employeeService.updateEmployee(employee)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Employee Updated Successfully..");
             alert.show();
             loadTable();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Employee didn't Updated ...");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Employee couldn't be updated.");
             alert.show();
         }
     }
@@ -205,9 +278,29 @@ public class EmployeeFormController implements Initializable {
     }
 
     public void btnNewEmployeeOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnAllReportsOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnCustomersOnAction(ActionEvent event) {

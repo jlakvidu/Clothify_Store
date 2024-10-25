@@ -11,4 +11,5 @@ public interface UserService extends SuperService {
     void storeOTP(String email, String otp);
     boolean validateOTP(String email, String otp);
     void resetPassword(String email, String newPassword);
+    boolean isEmailExists(String emailAddress);
 }

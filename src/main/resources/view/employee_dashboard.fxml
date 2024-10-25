@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,9 +15,81 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDashboardFormController">
+<AnchorPane prefHeight="801.0" prefWidth="1067.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EmployeeDashboardFormController">
    <children>
-      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="569.0" layoutX="-110.0" layoutY="-4.0" width="300.0" />
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="178.0" layoutX="459.0" layoutY="382.0" stroke="BLACK" strokeType="INSIDE" width="300.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="226.0" layoutX="787.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="223.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="226.0" layoutX="452.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="314.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="100000.0" height="226.0" layoutX="204.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="232.0">
+         <fill>
+            <RadialGradient centerX="0.48230085963696506" centerY="0.5" focusDistance="-0.018348606354599672" radius="0.8944953865961196">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.75789475440979" green="0.75789475440979" blue="0.75789475440979" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="80.0" arcWidth="80.0" fill="#9C27B0" height="813.0" layoutX="-110.0" layoutY="-3.0" width="300.0" />
       <ImageView fitHeight="56.0" fitWidth="64.0" layoutX="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo.png" />
@@ -78,7 +150,7 @@
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="228.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="640.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" layoutX="228.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="823.0">
          <fill>
             <RadialGradient centerX="0.48230085963696506" centerY="0.5" radius="0.6467889820763824">
                <stops>
@@ -96,7 +168,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Label layoutX="446.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+      <Label layoutX="559.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
@@ -106,77 +178,147 @@
             <Font name="Bodoni MT Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="273.0" layoutY="101.0" prefHeight="25.0" prefWidth="78.0" text="Order Id :">
+      <Label layoutX="263.0" layoutY="88.0" prefHeight="25.0" prefWidth="78.0" text="Order Id :">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="440.0" layoutY="101.0" prefHeight="18.0" prefWidth="62.0" text="Date :">
+      <Label layoutX="537.0" layoutY="88.0" prefHeight="18.0" prefWidth="62.0" text="Date :">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderDate" layoutX="501.0" layoutY="101.0" prefHeight="25.0" prefWidth="93.0" text="2023-09-08">
+      <Label fx:id="lblOrderDate" layoutX="609.0" layoutY="88.0" prefHeight="25.0" prefWidth="93.0" text="2023-09-08">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="631.0" layoutY="101.0" prefHeight="18.0" prefWidth="62.0" text="Time :">
+      <Label layoutX="811.0" layoutY="88.0" prefHeight="18.0" prefWidth="62.0" text="Time :">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblOrderTime" layoutX="703.0" layoutY="101.0" prefHeight="25.0" prefWidth="119.0" text="1 : 15">
+      <Label fx:id="lblOrderTime" layoutX="883.0" layoutY="88.0" prefHeight="25.0" prefWidth="119.0" text="1 : 15">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtOrderId" layoutX="341.0" layoutY="100.0" prefHeight="26.0" prefWidth="87.0" />
-      <ComboBox fx:id="cmdCustomerId" layoutX="298.0" layoutY="155.0" prefHeight="26.0" prefWidth="134.0" promptText="Customer ID" />
-      <ComboBox fx:id="cmdItemCode" layoutX="298.0" layoutY="199.0" prefHeight="14.0" prefWidth="133.0" promptText="Item Code" />
-      <TextField fx:id="txtCustomerName" layoutX="481.0" layoutY="155.0" promptText="Customer Name" />
-      <TextField fx:id="txtCustomerAddress" layoutX="652.0" layoutY="155.0" promptText="Customer Address" />
-      <TextField fx:id="txtDescription" layoutX="481.0" layoutY="199.0" prefHeight="26.0" prefWidth="93.0" promptText="Description" />
-      <TextField fx:id="txtStock" layoutX="718.0" layoutY="198.0" prefHeight="26.0" prefWidth="94.0" promptText="Stock" />
-      <TextField fx:id="txtUnitPrice" layoutX="604.0" layoutY="199.0" prefHeight="26.0" prefWidth="94.0" promptText="Unit Price" />
-      <TextField fx:id="txtQty" layoutX="604.0" layoutY="244.0" prefHeight="26.0" prefWidth="94.0" promptText="QTY" />
-      <JFXButton layoutX="722.0" layoutY="244.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Add To Cart" textFill="WHITE">
+      <ComboBox fx:id="cmdCustomerId" layoutX="250.0" layoutY="154.0" prefHeight="26.0" prefWidth="150.0" promptText="Customer ID" />
+      <ComboBox fx:id="cmdItemCode" layoutX="462.0" layoutY="154.0" prefHeight="26.0" prefWidth="150.0" promptText="Item Code" />
+      <JFXButton layoutX="860.0" layoutY="415.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #4cd137;" text="Add To Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblOrderDetails" layoutX="252.0" layoutY="313.0" prefHeight="200.0" prefWidth="606.0">
+      <TableView fx:id="tblOrderDetails" layoutX="210.0" layoutY="573.0" prefHeight="237.0" prefWidth="846.0" stylesheets="@../css/table.css">
          <columns>
-            <TableColumn fx:id="colItemCode" prefWidth="86.39996647834778" text="Item Code" />
-            <TableColumn fx:id="colDescription" prefWidth="127.20001220703125" text="Description" />
-            <TableColumn fx:id="colQty" prefWidth="112.79991149902344" text="QTY" />
-            <TableColumn fx:id="colUnitPrice" prefWidth="145.60003662109375" text="Unit Price" />
-            <TableColumn fx:id="colTotal" prefWidth="136.800048828125" text="Total" />
+            <TableColumn fx:id="colItemCode" prefWidth="119.20001220703125" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="261.5999450683594" text="Item Name" />
+            <TableColumn fx:id="colQty" prefWidth="140.00006103515625" text="QTY" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="161.5999755859375" text="Unit Price" />
+            <TableColumn fx:id="colTotal" prefWidth="193.60003662109375" text="Total" />
          </columns>
       </TableView>
-      <JFXButton layoutX="738.0" layoutY="531.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Place Order" textFill="WHITE">
+      <JFXButton layoutX="862.0" layoutY="482.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #3498db;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="271.0" layoutY="529.0" prefHeight="31.0" prefWidth="111.0" text="Net Total :" textFill="#c90000">
+      <Label layoutX="509.0" layoutY="505.0" prefHeight="31.0" prefWidth="111.0" text="Net Total :" textFill="#c90000">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="lblNetTotal" layoutX="382.0" layoutY="529.0" prefHeight="31.0" prefWidth="111.0" text="0000.00" textFill="#c90000">
+      <Label fx:id="lblNetTotal" layoutX="620.0" layoutY="505.0" prefHeight="31.0" prefWidth="111.0" text="0000.00" textFill="#c90000">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <JFXButton layoutX="617.0" layoutY="516.0" onAction="#btnRemoveOnAction" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: #4cd137;" text="Remove" textFill="WHITE">
+      <JFXButton layoutX="863.0" layoutY="536.0" onAction="#btnRemoveOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #e74c3c;" text="Remove" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtCatagory" layoutX="501.0" layoutY="245.0" prefHeight="26.0" prefWidth="94.0" promptText="Catagory" />
-      <TextField fx:id="txtEmpId" layoutX="290.0" layoutY="244.0" prefHeight="26.0" prefWidth="67.0" promptText="emp id" />
-      <TextField fx:id="txtEmail" layoutX="385.0" layoutY="246.0" prefHeight="26.0" prefWidth="67.0" promptText="email" />
-      <TextField fx:id="txtDiscount" layoutX="615.0" layoutY="286.0" prefHeight="26.0" prefWidth="94.0" promptText="Discount" />
+      <JFXButton layoutX="2.0" layoutY="735.0" onAction="#btnLogOutOnAction" prefHeight="28.0" prefWidth="186.0" style="-fx-background-color: #273c75;" text="Log Out" textFill="WHITE">
+         <font>
+            <Font name="Verdana Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ComboBox fx:id="cmdEmployeeId" layoutX="817.0" layoutY="148.0" prefWidth="150.0" promptText="Employee Id" />
+      <Label layoutX="483.0" layoutY="419.0" prefHeight="18.0" prefWidth="102.0" text="Enter Item QTY">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="462.0" prefHeight="18.0" prefWidth="90.0" text="Enter Discount">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtQty" layoutX="593.0" layoutY="405.0" />
+      <JFXTextField fx:id="txtDiscount" layoutX="593.0" layoutY="449.0" />
+      <Label layoutX="251.0" layoutY="201.0" prefHeight="18.0" prefWidth="102.0" text="Customer Name">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtCustomerName" layoutX="252.0" layoutY="224.0" />
+      <JFXTextField fx:id="txtCustomerAddress" layoutX="252.0" layoutY="301.0" />
+      <Label layoutX="250.0" layoutY="271.0" prefHeight="18.0" prefWidth="111.0" text="Customer Address">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="462.0" layoutY="201.0" prefHeight="18.0" prefWidth="90.0" text="Item Name">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtDescription" layoutX="462.0" layoutY="223.0" />
+      <Label layoutX="631.0" layoutY="201.0" prefHeight="18.0" prefWidth="90.0" text="Unit Price">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUnitPrice" layoutX="622.0" layoutY="223.0" />
+      <Label layoutX="589.0" layoutY="272.0" prefHeight="18.0" prefWidth="41.0" text="Stock" textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtStock" layoutX="544.0" layoutY="294.0" />
+      <JFXTextField fx:id="txtEmail" layoutX="816.0" layoutY="296.0" />
+      <Label layoutX="817.0" layoutY="276.0" prefHeight="18.0" prefWidth="90.0" text="Email Address">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtEmployeeName" layoutX="816.0" layoutY="224.0" />
+      <Label layoutX="818.0" layoutY="203.0" prefHeight="18.0" prefWidth="102.0" text="Employee Name">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtOrderId" layoutX="349.0" layoutY="81.0" prefHeight="26.0" prefWidth="87.0" />
+      <ImageView fitHeight="188.0" fitWidth="247.0" layoutX="231.0" layoutY="377.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/supplier.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="796.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/add_to_cart_icon-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="796.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/place_order_icon-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="87.0" layoutX="231.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/supplier.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

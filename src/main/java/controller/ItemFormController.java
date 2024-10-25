@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -79,26 +80,73 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
+        if (txtItemId.getText().isEmpty() ||
+                txtItemName.getText().isEmpty() ||
+                txtSupplierId.getText().isEmpty() ||
+                txtUnitPrice.getText().isEmpty() ||
+                txtQtyOnHand.getText().isEmpty() ||
+                txtPackSize.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        double unitPrice;
+        try {
+            unitPrice = Double.parseDouble(txtUnitPrice.getText());
+            if (unitPrice < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid positive unit price.");
+            alert.showAndWait();
+            return;
+        }
+
+        int qtyOnHand;
+        try {
+            qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
+            if (qtyOnHand < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid non-negative quantity on hand.");
+            alert.showAndWait();
+            return;
+        }
+
         Item item = new Item(
                 txtItemId.getText(),
                 txtItemName.getText(),
                 txtSupplierId.getText(),
-                Double.parseDouble(txtUnitPrice.getText()),
-                Integer.parseInt(txtQtyOnHand.getText()),
+                unitPrice,
+                qtyOnHand,
                 txtPackSize.getText()
         );
+
         ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
-        if (itemService.addItem(item)){
+        if (itemService.addItem(item)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Item Added Successfully...");
             alert.show();
             loadTable();
-        }else{
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Failed to add the item.");
             alert.show();
         }
     }
+
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -137,26 +185,73 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        if (txtItemId.getText().isEmpty() ||
+                txtItemName.getText().isEmpty() ||
+                txtSupplierId.getText().isEmpty() ||
+                txtUnitPrice.getText().isEmpty() ||
+                txtQtyOnHand.getText().isEmpty() ||
+                txtPackSize.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        double unitPrice;
+        try {
+            unitPrice = Double.parseDouble(txtUnitPrice.getText());
+            if (unitPrice < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid positive unit price.");
+            alert.showAndWait();
+            return;
+        }
+
+        int qtyOnHand;
+        try {
+            qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
+            if (qtyOnHand < 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid non-negative quantity on hand.");
+            alert.showAndWait();
+            return;
+        }
+
         Item item = new Item(
                 txtItemId.getText(),
                 txtItemName.getText(),
                 txtSupplierId.getText(),
-                Double.parseDouble(txtUnitPrice.getText()),
-                Integer.parseInt(txtQtyOnHand.getText()),
+                unitPrice,
+                qtyOnHand,
                 txtPackSize.getText()
         );
+
         ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
-        if(itemService.updateItem(item)){
+        if (itemService.updateItem(item)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Item Updated Successfully..");
             alert.show();
             loadTable();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Item didn't Updated ...");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Item didn't update ...");
             alert.show();
         }
     }
+
 
     public void generateID() {
         try {
@@ -235,6 +330,16 @@ public class ItemFormController implements Initializable {
     }
 
     public void btnAllReportsOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnCustomersOnAction(ActionEvent event) {

@@ -1,7 +1,7 @@
 package controller;
 
+import com.jfoenix.controls.JFXTextField;
 import dto.*;
-import entity.ItemEntity;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -21,6 +21,7 @@ import javafx.util.Duration;
 import service.ServiceFactory;
 import service.SuperService;
 import service.custom.CustomerService;
+import service.custom.EmployeeService;
 import service.custom.ItemService;
 import service.custom.OrderService;
 import util.ServiceType;
@@ -29,18 +30,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class EmployeeDashboardFormController implements Initializable {
 
     public TextField txtCatagory;
     public TextField txtEmail;
-    public TextField txtEmpId;
     public TextField txtDiscount;
+    public ComboBox<String> cmdEmployeeId;
+    public JFXTextField txtEmployeeName;
     @FXML
     private ComboBox<String> cmdCustomerId;
 
@@ -142,7 +145,7 @@ public class EmployeeDashboardFormController implements Initializable {
             double total = unitPrice * qty;
             cartTMS.add(new CartTM(itemId, name, qty, unitPrice, total));
             calcNetTotal();
-            int updateStock = updateStock01(itemId, qty);
+            updateStock01(itemId, qty);
             refreshStockDisplay(itemId);
 
             tblOrderDetails.setItems(cartTMS);
@@ -226,10 +229,10 @@ public class EmployeeDashboardFormController implements Initializable {
         }else {
             for (CartTM cartItem : cartTMS) {
                 ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
-                Item dbItem = itemService.searchItem(cartItem.getItemId());
-                int newQty = dbItem.getQty() - cartItem.getQty();
-                dbItem.setQty(newQty);
-                itemService.updateItem(dbItem);
+                itemService.searchItem(cartItem.getItemId());
+                //int newQty = dbItem.getQty() - cartItem.getQty();
+                //dbItem.setQty(newQty);
+                //itemService.updateItem(dbItem);
             }
 
             List<OrderDetails> orderDetailsList=new ArrayList<>();
@@ -238,7 +241,7 @@ public class EmployeeDashboardFormController implements Initializable {
                 orderDetailsList.add(new OrderDetails(txtOrderId.getText(),obj.getItemId(),obj.getQty(), obj.getPrice()));
             });
 
-            Order order = new Order(txtOrderId.getText(), LocalDateTime.now(), txtEmpId.getText(),txtEmail.getText(), orderDetailsList);
+            Order order = new Order(txtOrderId.getText(), LocalDateTime.now(), cmdEmployeeId.getValue(),txtEmail.getText(), orderDetailsList);
             OrderService orderService = ServiceFactory.getInstance().getServiceType(ServiceType.ORDER);
             orderService.placeOrder(order);
             
@@ -351,6 +354,7 @@ public class EmployeeDashboardFormController implements Initializable {
         generateID();
         loadCustomerIds();
         loadItemIds();
+        loadEmployeeIds();
         loadDateAndTime();
         cmdCustomerId.getSelectionModel().selectedItemProperty().addListener((observableValue, s, newVal) -> {
             if (newVal!=null){
@@ -363,6 +367,20 @@ public class EmployeeDashboardFormController implements Initializable {
                 searchItemCode(newVal);
             }
         });
+
+        cmdEmployeeId.getSelectionModel().selectedItemProperty().addListener((observableValue, s, newVal) -> {
+            if (newVal!=null){
+                searchEmployee(newVal);
+            }
+        });
+
+    }
+
+    private void searchEmployee(String newVal) {
+        EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+        Employee employee = employeeService.searchEmployee(newVal);
+        txtEmail.setText(employee.getEmployeeEmailAddress());
+        txtEmployeeName.setText(employee.getEmployeeName());
     }
 
     private void searchItemCode(String newVal) {
@@ -384,6 +402,12 @@ public class EmployeeDashboardFormController implements Initializable {
         CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         ObservableList<String> customerIds = customerService.getCustomerIds();
         cmdCustomerId.setItems(customerIds);
+    }
+
+    public void loadEmployeeIds(){
+        EmployeeService employeeService = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
+        ObservableList<String> employeeIds = employeeService.getEmployeeIds();
+        cmdEmployeeId.setItems(employeeIds);
     }
 
     public void loadItemIds(){
@@ -442,6 +466,19 @@ public class EmployeeDashboardFormController implements Initializable {
         Stage newStage = new Stage();
         try {
             newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_dashboard.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.close();
+    }
+
+    public void btnLogOutOnAction(ActionEvent event) {
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/employee_main_page.fxml"))));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -77,25 +78,63 @@ public class SupplierFormController implements Initializable {
     @FXML
     void btnAddOnAction(ActionEvent event) {
         SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
+
+        if (txtSupplierId.getText().isEmpty() ||
+                txtTitle.getValue() == null ||
+                txtSupplierName.getText().isEmpty() ||
+                txtSupplierItem.getText().isEmpty() ||
+                txtSupplierCompany.getText().isEmpty() ||
+                txtContactNumber.getText().isEmpty() ||
+                txtSupplierEmailAddress.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (!txtSupplierEmailAddress.getText().matches("^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,4}$")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid email address.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (!txtContactNumber.getText().matches("\\d{10}")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid 10-digit contact number.");
+            alert.showAndWait();
+            return;
+        }
+
         Supplier supplier = new Supplier(
                 txtSupplierId.getText(),
-                txtTitle.getValue().toString(),
+                txtTitle.getValue(),
                 txtSupplierName.getText(),
                 txtSupplierItem.getText(),
                 txtSupplierCompany.getText(),
                 txtContactNumber.getText(),
                 txtSupplierEmailAddress.getText()
         );
+
         if (supplierService.addSupplier(supplier)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Supplier Added Successfully...");
             alert.show();
+            loadTable();
         } else {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Supplier Didn't added....");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Supplier couldn't be added.");
             alert.show();
         }
     }
+
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
@@ -135,27 +174,63 @@ public class SupplierFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        if (txtSupplierId.getText().isEmpty() ||
+                txtTitle.getValue() == null ||
+                txtSupplierName.getText().isEmpty() ||
+                txtSupplierItem.getText().isEmpty() ||
+                txtSupplierCompany.getText().isEmpty() ||
+                txtContactNumber.getText().isEmpty() ||
+                txtSupplierEmailAddress.getText().isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (!txtSupplierEmailAddress.getText().matches("^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,4}$")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid email address.");
+            alert.showAndWait();
+            return;
+        }
+
+        if (!txtContactNumber.getText().matches("\\d{10}")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Input Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid 10-digit contact number.");
+            alert.showAndWait();
+            return;
+        }
+
         Supplier supplier = new Supplier(
                 txtSupplierId.getText(),
-                txtTitle.getValue().toString(),
+                txtTitle.getValue(),
                 txtSupplierName.getText(),
                 txtSupplierItem.getText(),
                 txtSupplierCompany.getText(),
                 txtContactNumber.getText(),
                 txtSupplierEmailAddress.getText()
         );
+
         SupplierService supplierService = ServiceFactory.getInstance().getServiceType(ServiceType.SUPPLIER);
-        if(supplierService.updateSupplier(supplier)){
+        if (supplierService.updateSupplier(supplier)) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Supplier Updated Successfully..");
             alert.show();
             loadTable();
-        }else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Supplier didn't Updated ...");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Supplier didn't update.");
             alert.show();
         }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -234,6 +309,16 @@ public class SupplierFormController implements Initializable {
     }
 
     public void btnAllReportsOnAction(ActionEvent actionEvent) {
+        Stage currentStage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
+        currentStage.close();
+
+        Stage newStage = new Stage();
+        try {
+            newStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/report_form.fxml"))));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        newStage.show();
     }
 
     public void btnCustomersOnAction(ActionEvent event) {

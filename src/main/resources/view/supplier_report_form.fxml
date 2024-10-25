@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierReportFormController">
+<AnchorPane prefHeight="495.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SupplierReportFormController">
    <children>
-      <TableView fx:id="tblSuppliers" layoutX="15.0" layoutY="111.0" prefHeight="200.0" prefWidth="570.0">
+      <ImageView fitHeight="495.0" fitWidth="826.0" layoutX="-46.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/background%20image.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblSuppliers" layoutY="110.0" prefHeight="329.0" prefWidth="746.0" stylesheets="@../css/table2.css">
         <columns>
           <TableColumn fx:id="colSupplierId" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="colSupplierTitle" prefWidth="75.0" text="Title" />
             <TableColumn fx:id="colSupplierName" prefWidth="75.0" text="Name" />
             <TableColumn fx:id="colSupplierItem" prefWidth="75.0" text="Item" />
-            <TableColumn fx:id="colSupplierCompany" prefWidth="75.0" text="Company" />
-            <TableColumn fx:id="colSupplierContactNumber" prefWidth="75.0" text="ContactNumber" />
-            <TableColumn fx:id="colSupplierEmailAddress" prefWidth="118.39999999999998" text="Email Address" />
+            <TableColumn fx:id="colSupplierCompany" prefWidth="104.0" text="Company" />
+            <TableColumn fx:id="colSupplierContactNumber" prefWidth="157.5999755859375" text="ContactNumber" />
+            <TableColumn fx:id="colSupplierEmailAddress" prefWidth="184.0" text="Email Address" />
         </columns>
       </TableView>
-      <Button layoutX="534.0" layoutY="366.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" text="Print" />
+      <Button layoutX="313.0" layoutY="456.0" mnemonicParsing="false" onAction="#handlePrintReportOnAction" prefHeight="30.0" prefWidth="193.0" style="-fx-background-color: #4cd137;" text="Print" textFill="WHITE">
+         <font>
+            <Font name="Tw Cen MT" size="17.0" />
+         </font>
+      </Button>
+      <Label layoutX="231.0" layoutY="23.0" text="SUPPLIER REPORT" textFill="#ff00ae" underline="true">
+         <font>
+            <Font name="Verdana Bold" size="33.0" />
+         </font>
+      </Label>
+      <Line endX="642.9999389648438" layoutX="101.0" layoutY="82.0" startX="-100.0" stroke="#008cff" />
+      <Line endX="642.9999389648438" layoutX="101.0" layoutY="87.0" startX="-100.0" stroke="#008cff" />
+      <JFXButton layoutX="682.0" layoutY="459.0" onAction="#btnBackOnAction" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: #f5f6fa;" text="Back" underline="true" />
+      <ImageView fitHeight="56.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="60.0" layoutY="16.0" text="Clothify Store" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="78.0" layoutY="32.0" text="Panadura" textFill="WHITE">
+         <font>
+            <Font name="Bell MT Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
