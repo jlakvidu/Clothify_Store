@@ -1,6 +1,5 @@
 package repository.custom.impl;
 
-import entity.OrderDetailsEntity;
 import entity.OrderEntity;
 import org.hibernate.Session;
 import repository.custom.OrderDao;

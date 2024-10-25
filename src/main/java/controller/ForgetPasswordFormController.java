@@ -60,8 +60,6 @@ public class ForgetPasswordFormController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/reset_passowrd_form.fxml"));
                 AnchorPane root = loader.load();
-
-                // Get the controller and set the email address
                 ResetPasswordFormController resetPasswordFormController = loader.getController();
                 resetPasswordFormController.setEmailAddress(email);
 

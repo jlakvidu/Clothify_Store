@@ -133,6 +133,7 @@ public class EmployeeFormController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Employee Added Successfully...");
             alert.show();
+            loadTable();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Employee couldn't be added.");

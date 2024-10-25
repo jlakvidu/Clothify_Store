@@ -168,7 +168,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Label layoutX="559.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+      <Label layoutX="550.0" layoutY="19.0" text="Place Order" textFill="WHITE">
          <font>
             <Font name="Arial Rounded MT Bold" size="36.0" />
          </font>
@@ -205,7 +205,7 @@
       </Label>
       <ComboBox fx:id="cmdCustomerId" layoutX="250.0" layoutY="154.0" prefHeight="26.0" prefWidth="150.0" promptText="Customer ID" />
       <ComboBox fx:id="cmdItemCode" layoutX="462.0" layoutY="154.0" prefHeight="26.0" prefWidth="150.0" promptText="Item Code" />
-      <JFXButton layoutX="860.0" layoutY="415.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #4cd137;" text="Add To Cart" textFill="WHITE">
+      <JFXButton layoutX="858.0" layoutY="403.0" onAction="#btnAddToCartOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #4cd137;" text="Add To Cart" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -219,7 +219,7 @@
             <TableColumn fx:id="colTotal" prefWidth="193.60003662109375" text="Total" />
          </columns>
       </TableView>
-      <JFXButton layoutX="862.0" layoutY="482.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #3498db;" text="Place Order" textFill="WHITE">
+      <JFXButton layoutX="860.0" layoutY="470.0" onAction="#btnPlaceOrderOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #3498db;" text="Place Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -234,7 +234,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <JFXButton layoutX="863.0" layoutY="536.0" onAction="#btnRemoveOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #e74c3c;" text="Remove" textFill="WHITE">
+      <JFXButton layoutX="861.0" layoutY="524.0" onAction="#btnRemoveOnAction" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #e74c3c;" text="Remove" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -305,12 +305,12 @@
             <Image url="@../img/supplier.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="796.0" layoutY="403.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="794.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/add_to_cart_icon-removebg-preview.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="796.0" layoutY="471.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="111.0" layoutX="794.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/place_order_icon-removebg-preview.png" />
          </image>
